@@ -1,12 +1,13 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from 'react' //Esto es un require fresa
+import ReactDOM from 'react-dom'
+// import MiComponente from './components/MiComponente'
+// import Direcciones from './components/Direcciones'
+// import Path from './components/Path'
+// // import Preciclo from './components/Preciclo'
+import Peticiones from './components/Peticiones'
 
-ReactDOM.render(<App />, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+//ReactDOM.render( Que estoy mandando , A donde lo estoy mandando )
+//ReactDOM.render(<MiComponente />, document.getElementById('maindiv'))
+// ReactDOM.render(<Direcciones />, document.getElementById('maindiv'))
+// ReactDOM.render(<Preciclo />, document.getElementById('maindiv'))
+ReactDOM.render(<Peticiones />, document.getElementById('maindiv'))
