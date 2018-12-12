@@ -1,16 +1,19 @@
 import React from 'react'
 import axios from 'axios'
+import Card from './Tarjeta'
 
 class Peticiones extends React.Component{
 
   state = {
-    personas: []
+    personas: [],
+    libros: []
   }
 
   getLibros = () => {
     axios.get("http://localhost:5000/libros/")
       .then( (resp) => {
         console.log(resp.data)
+        this.setState({libros: resp.data})
       })
       .catch( (err) => {
         console.log(`ERROR - ${err}`)
@@ -53,6 +56,21 @@ class Peticiones extends React.Component{
         {/* <button onClick={this.getPersona1}> Persona1 </button> */}
         <button onClick={this.getLibros}> GET a libros </button>
         <button onClick={this.nuevoLibro}> POST a libros </button>
+
+        {
+          this.state.libros.map( (libro,index) => {
+            return (
+                <Card 
+                  key = {`libro-${index}`}
+                  ind = {index}
+                  titulo = {libro.titulo}
+                  desc = {libro.descripcion}
+                  anio = {libro.anio}
+                />
+            )
+          })
+        }
+
         {
           this.state.personas.map( (personaje, index) => {
             {/* return <p>{personaje}</p> */}
